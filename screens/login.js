@@ -28,17 +28,17 @@ export default function Login(props) {
     return (
         <View style={styles.padre}>
             <View>
-                <Image source={require('../assets/imgInvernadero.png')} style={styles.profile} />
+                <Image source={require('../assets/imgInvernadero2.png')} style={styles.profile} />
             </View>
             <View style={styles.tarjeta}>
                 <View style={styles.cajaTexto}>
-                    <Ionicons name="person" size={24} color="black" style={styles.icono} />
+                    <Ionicons name="person" size={20} color="black" style={styles.icono} />
                     <TextInput placeholder="Correo electrónico" style={styles.input}
                         onChangeText={(text) => setEmail(text)} />
                 </View>
 
                 <View style={styles.cajaTexto}>
-                    <Ionicons name="lock-closed" size={24} color="black" style={styles.icono} />
+                    <Ionicons name="lock-closed" size={20} color="black" style={styles.icono} />
                     <TextInput placeholder="Contraseña" style={styles.input}
                         onChangeText={(text) => setPassword(text)} secureTextEntry={!showPassword} />
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     profile: {
-        width: 100,
-        height: 100,
+        width: 400,
+        height: 350,
         borderRadius: 50,
         borderColor: 'white'
     },
     tarjeta: {
         margin: 20,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
         borderRadius: 20,
         width: '90%',
         padding: 20,
@@ -95,10 +95,11 @@ const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        paddingVertical: 10
+        paddingVertical: 10,
+        fontSize: 15, 
     },
     boton: {
-        backgroundColor: '#525FE1',
+        backgroundColor: '#FCB03E',
         borderRadius: 30,
         paddingVertical: 20,
         alignItems: 'center',
@@ -106,6 +107,8 @@ const styles = StyleSheet.create({
     },
     TextoBoton: {
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        fontSize: 20, 
     }
+    
 });
