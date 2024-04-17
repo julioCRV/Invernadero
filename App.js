@@ -4,10 +4,10 @@ import 'react-native-gesture-handler';
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import GreenhouseCard from './Components/InvernaderoLista';
+import ListaInvernaderos from './Components/InvernaderoLista';
 import Login from './screens/login';
-import Home from './screens/Home';
-import VerScreen from './Components/otro'
+import VerConfiguraciones from './screens/ConfiguracionInventario'
+
 
 export default function App() {
 
@@ -31,7 +31,13 @@ export default function App() {
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "#FCB03E" },
           }} />
-           <Stack.Screen name="Ver" component={VerScreen} />
+           <Stack.Screen name="VerConfig" component={VerConfiguraciones}
+           options={{
+            title: "CONFIGURACIONES",
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "#FCB03E" },
+          }} />
       </Stack.Navigator>
     )
   }
@@ -45,7 +51,7 @@ export default function App() {
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <GreenhouseCard navigation={navigation} />
+    <ListaInvernaderos navigation={navigation} />
   );
 };
 

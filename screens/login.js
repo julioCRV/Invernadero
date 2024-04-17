@@ -7,13 +7,19 @@ import appFirebase from "../credenciales";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const auth = getAuth(appFirebase);
 
+// import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+// import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+
+// const auth = initializeAuth(appFirebase, {
+//   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+// });
+
 export default function Login(props) {
 
     //creamos las variables de estado
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [showPassword, setShowPassword] = useState(false); 
-
     const logueo = async () => {
         try {
             await signInWithEmailAndPassword(auth, email, password);

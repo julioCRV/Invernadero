@@ -6,9 +6,7 @@ const GreenhouseCard = ({ name, imageUrl }) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    // Aquí puedes navegar a la página deseada al hacer clic en la tarjeta
-    // Por ejemplo, puedes navegar a la página de detalles del invernadero
-    navigation.navigate('Ver', { name, imageUrl });
+    navigation.navigate('VerConfig', { name, imageUrl });
   };
 
   return (

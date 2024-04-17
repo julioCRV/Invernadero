@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import appFirebase from '../credenciales';
 import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, setDoc, getDoc } from 'firebase/firestore';
-import Card from './InvernaderoCard'; // Asegúrate de que la ruta de importación sea correcta
+import Card from './InvernaderoCard';
 
 const db = getFirestore(appFirebase);
 
