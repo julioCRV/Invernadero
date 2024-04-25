@@ -20,9 +20,10 @@ export default function Login(props) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [showPassword, setShowPassword] = useState(false); 
+
     const logueo = async () => {
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth,`${email}@gmail.com`, password);
             Alert.alert('Iniciando sesion', 'Accediendo...');
             props.navigation.navigate('Home');
         } catch (error) {
@@ -34,12 +35,12 @@ export default function Login(props) {
     return (
         <View style={styles.padre}>
             <View>
-                <Image source={require('../assets/imgInvernadero2.png')} style={styles.profile} />
+                <Image source={require('../assets/img-invernadero.jpg')} style={styles.profile} />
             </View>
             <View style={styles.tarjeta}>
                 <View style={styles.cajaTexto}>
                     <Ionicons name="person" size={20} color="black" style={styles.icono} />
-                    <TextInput placeholder="Correo electrónico" style={styles.input}
+                    <TextInput placeholder="Nombre de usuario" style={styles.input}
                         onChangeText={(text) => setEmail(text)} />
                 </View>
 

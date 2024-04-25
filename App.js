@@ -9,6 +9,7 @@ import Login from './screens/login';
 import VerConfiguraciones from './screens/ConfiguracionInventario'
 
 
+
 export default function App() {
 
   const Stack = createStackNavigator();
