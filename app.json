@@ -7,7 +7,7 @@
     "icon": "./assets/logo-app.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/scesi-logo-blanco.png",
+      "image": "",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-app.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.juliocrv.Invernadero"
