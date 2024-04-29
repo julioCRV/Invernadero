@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import appFirebase from '../credenciales';
 import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, setDoc, getDoc } from 'firebase/firestore';
 import Card from './InvernaderoCard';
@@ -32,6 +32,11 @@ const GreenhouseList = () => {
   }, []);
 
   return (
+    <ImageBackground
+    source={require('../assets/fondo.png')}
+    style={styles.container}
+    resizeMode="cover"
+>
     <ScrollView>
       {lista.map(greenhouse => (
         <Card
@@ -41,7 +46,16 @@ const GreenhouseList = () => {
         />
       ))}
     </ScrollView>
+    </ImageBackground>
+
   );
 };
 
 export default GreenhouseList;
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      padding: 10,
+  },
+});

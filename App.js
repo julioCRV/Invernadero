@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import ListaInvernaderos from './Components/InvernaderoLista';
 import Login from './screens/login';
 import VerConfiguraciones from './screens/ConfiguracionInventario'
-
+import { Ionicons } from '@expo/vector-icons';
 
 
 export default function App() {
@@ -17,10 +17,11 @@ export default function App() {
 
   function MyStack() {
     return (
+  
       <Stack.Navigator>
         <Stack.Screen name='Login' component={Login}
           options={{
-            title: "INICIE SESIÓN PARA CONTINUAR",
+            title: "¡Bienvenido a AgroScesi!",
             headerTintColor: "white",
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "#FCB03E" },
@@ -33,13 +34,23 @@ export default function App() {
             headerStyle: { backgroundColor: "#FCB03E" },
           }} />
            <Stack.Screen name="VerConfig" component={VerConfiguraciones}
-           options={{
+         options={({ navigation }) => ({
             title: "CONFIGURACIONES",
             headerTintColor: "white",
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "#FCB03E" },
-          }} />
+            headerRight: () => (
+              <Ionicons
+                name="log-out"
+                size={24}
+                color="white"
+                style={{ marginRight: 10 }}
+                onPress={() => navigation.navigate('Login')}
+              />
+            ),
+          })}/>
       </Stack.Navigator>
+
     )
   }
 
@@ -47,6 +58,7 @@ export default function App() {
     <NavigationContainer>
       <MyStack />
     </NavigationContainer>
+
   );
 }
 

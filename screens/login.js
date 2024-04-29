@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Text, StyleSheet, View, Image, TextInput, TouchableOpacity, Alert } from "react-native";
+import { Text, StyleSheet, View, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from "react-native";
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -19,12 +19,12 @@ export default function Login(props) {
     //creamos las variables de estado
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [showPassword, setShowPassword] = useState(false); 
+    const [showPassword, setShowPassword] = useState(false);
 
     const logueo = async () => {
         try {
-            await signInWithEmailAndPassword(auth,`${email}@gmail.com`, password);
-            Alert.alert('Iniciando sesion', 'Accediendo...');
+            await signInWithEmailAndPassword(auth, `${email}@gmail.com`, password);
+            Alert.alert('Iniciando sesión', 'Accediendo...');
             props.navigation.navigate('Home');
         } catch (error) {
             console.log(error);
@@ -33,7 +33,13 @@ export default function Login(props) {
     }
 
     return (
+        <ImageBackground
+        source={require('../assets/fondo.png')}
+        style={styles.container}
+        resizeMode="cover"
+    >
         <View style={styles.padre}>
+            <Text style={styles.title}>Controla tu invernadero con un solo clic. Accede aquí</Text>
             <View>
                 <Image source={require('../assets/img-invernadero.jpg')} style={styles.profile} />
             </View>
@@ -58,6 +64,7 @@ export default function Login(props) {
                 </TouchableOpacity>
             </View>
         </View>
+        </ImageBackground>
     )
 }
 
@@ -66,26 +73,35 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white'
+    },
+    title: {
+        fontSize: 18,
+        marginBottom: 20,
+        textAlign: 'center',
+        marginLeft: '15%',
+        marginRight: '15%',
+        textShadowColor: '#fff', // Color de la sombra blanca
+        textShadowOffset: { width: 0, height: 1 }, // Desplazamiento de la sombra
+        textShadowRadius: 11, // Radio de la sombra
+        color: '#000000'
     },
     profile: {
-        width: 400,
+        width: 350,
         height: 350,
         borderRadius: 50,
-        borderColor: 'white'
     },
     tarjeta: {
         margin: 20,
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
         borderRadius: 20,
-        width: '90%',
+        width: 350,
         padding: 20,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 2
         },
-        shadowOpacity: 0.25,
+        shadowOpacity: 0.5,
         shadowRadius: 4,
         elevation: 5,
     },
@@ -103,7 +119,8 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         paddingVertical: 10,
-        fontSize: 15, 
+        fontSize: 15,
+        color: '#000000'
     },
     boton: {
         backgroundColor: '#FCB03E',
@@ -115,7 +132,10 @@ const styles = StyleSheet.create({
     TextoBoton: {
         textAlign: 'center',
         color: 'white',
-        fontSize: 20, 
-    }
-    
+        fontSize: 20,
+    },
+    container: {
+        flex: 1,
+        padding: 40,
+      },
 });
