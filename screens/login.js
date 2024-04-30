@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginLeft: '15%',
         marginRight: '15%',
-        textShadowColor: '#fff', // Color de la sombra blanca
-        textShadowOffset: { width: 0, height: 1 }, // Desplazamiento de la sombra
-        textShadowRadius: 11, // Radio de la sombra
+        textShadowColor: '#fff', 
+        textShadowOffset: { width: 0, height: 1 }, 
+        textShadowRadius: 11,
         color: '#000000'
     },
     profile: {

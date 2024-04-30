@@ -11,24 +11,28 @@ import { Ionicons } from '@expo/vector-icons';
 const Stack = createStackNavigator();
 
 const SplashScreen = ({navigation}) => {
-  // Simula un tiempo de espera antes de navegar a la página principal
+
   useEffect(() => {
     const timeout = setTimeout(() => {
-      // Navegar a la página principal
       navigation.replace('Login');
-    }, 3000); // Cambia el tiempo de espera según tus necesidades
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, []);
 
   return (
     <ImageBackground
-      source={require('./assets/scesi-logo-blanco.png')} // Cambia la ruta a tu imagen de fondo
+      source={require('./assets/scesi-logo-blanco.png')}
       style={styles.container}
       resizeMode="cover"
     >
-      {/* Puedes agregar contenido adicional en la pantalla de inicio si es necesario */}
     </ImageBackground>
+  );
+};
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <ListaInvernaderos navigation={navigation} />
   );
 };
 
@@ -37,8 +41,8 @@ export default function App() {
   const Stack = createStackNavigator();
 
   function MyStack() {
-    return (
 
+    return (
       <Stack.Navigator initialRouteName="SplashScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
 
@@ -73,7 +77,6 @@ export default function App() {
             ),
           })} />
       </Stack.Navigator>
-
     )
   }
 
@@ -84,12 +87,6 @@ export default function App() {
 
   );
 }
-
-const HomeScreen = ({ navigation }) => {
-  return (
-    <ListaInvernaderos navigation={navigation} />
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
